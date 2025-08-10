@@ -17,7 +17,8 @@ class ProductPhotoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // ダミーのパス
+            'path' => '/storage/products/sample-' . fake()->numberBetween(1, 50) . '.jpg',
         ];
     }
 }
