@@ -1,0 +1,36 @@
+# Laravel & PHP
+/vendor
+/.phpunit.cache
+.phpunit.result.cache
+/storage/*.key
+.env
+.env.*
+Homestead.json
+Homestead.yaml
+auth.json
+
+# Storage（必要ディレクトリは .gitkeep で維持）
+/storage/*
+!/storage/app
+!/storage/app/public
+!/storage/framework
+!/storage/framework/cache
+!/storage/framework/sessions
+!/storage/framework/views
+!/storage/logs
+
+# Node / Frontend
+/node_modules
+/public/build
+/public/hot
+npm-debug.log
+yarn-error.log
+
+# Laravel public storage link
+/public/storage
+
+# Editor / IDE / OS
+/.idea
+/.vscode
+/.fleet
+.DS_Store
