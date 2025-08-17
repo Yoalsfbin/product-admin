@@ -7,7 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+
+    protected static function booted()
+    {
+        static::creating(function ($product) {
+            if (auth()->check()) {
+                $product->created_by = auth()->id();
+            }
+        });
+    }
+
+    
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'sku_code',
+        'price',
+        'category_id',
+        'status',
+        'published_at',
+    ];
 
     public function category()
     {
