@@ -19,13 +19,12 @@ return new class extends Migration
             $table->unsignedInteger('price');
 
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('main_photo_id')->nullable()->constrained('product_photos')->nullOnDelete();
 
             $table->enum('status', ['published', 'draft'])->default('draft');
             $table->timestamp('published_at')->nullable();
 
             $table->foreignId('created_by')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('uploaded_by')->nullable()->constrained('users')->nullOnDelete(); 
+            $table->foreignId('uploaded_by')->nullable()->constrained('users')->nullOnDelete();
 
             $table->timestamps();
             $table->softDeletes();

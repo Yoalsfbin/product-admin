@@ -19,6 +19,7 @@ class ProductPhotoFactory extends Factory
         return [
             // ダミーのパス
             'path' => '/storage/products/sample-' . fake()->numberBetween(1, 50) . '.jpg',
+            'is_main' => false,
         ];
     }
 }

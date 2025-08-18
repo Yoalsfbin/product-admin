@@ -17,7 +17,7 @@ class Product extends Model
         });
     }
 
-    
+
     use HasFactory;
 
     protected $fillable = [
@@ -56,6 +56,6 @@ class Product extends Model
     }
     public function photos()
     {
-        return $this->hasMany(\App\Models\ProductPhoto::class);
+        return $this->hasMany(ProductPhoto::class);
     }
 }
