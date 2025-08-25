@@ -37,7 +37,7 @@
     <main class="card">
       <section class="hero">
         <div class="hero-text">
-          <h1 class="title">{{ config('app.name', 'Laravel App') }}</h1>
+          <h1 class="title">{{ config('app.name', 'Product Admin Demo') }}</h1>
           <p class="subtitle">
             ポートフォリオ用のデモ環境です。
           </p>
