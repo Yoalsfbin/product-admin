@@ -46,9 +46,6 @@
               <a class="btn btn-primary" href="{{ route('products.index') }}">商品管理へ</a>
             @else
               <a class="btn btn-primary" href="{{ route('login') }}">ログイン</a>
-              @if (Route::has('register'))
-                <a class="btn btn-ghost" href="{{ route('register') }}">新規登録</a>
-              @endif
             @endauth
           </div>
           <p class="meta">
@@ -56,4 +53,3 @@
           </p>
         </div>
 
-       

@@ -24,41 +24,5 @@
                 <p><strong>説明：</strong><br>{{ $product->description }}</p>
             </div>
         </div>
-
-        {{-- 商品画像 --}}
-        @if ($product->photos->count())
-            <h5>商品画像</h5>
-            <div class="row mb-4">
-                @foreach ($product->photos as $photo)
-                    <div class="col-md-3 mb-3">
-                        <img src="{{ asset('storage/' . $photo->path) }}" class="img-fluid rounded border">
-                    </div>
-                @endforeach
-            </div>
-        @endif
-
-        {{-- 商品履歴 --}}
-        @if ($product->activities->count())
-            <h5>履歴</h5>
-            <table class="table table-sm table-bordered">
-                <thead>
-                    <tr>
-                        <th>操作</th>
-                        <th>ユーザー</th>
-                        <th>日時</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($product->activities as $activity)
-                        <tr>
-                            <td>{{ $activity->action }}</td>
-                            <td>{{ $activity->user?->name ?? '―' }}</td>
-                            <td>{{ $activity->created_at->format('Y-m-d H:i') }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @endif
-
     </div>
 </x-app-layout>
