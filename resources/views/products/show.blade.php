@@ -10,7 +10,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">{{ $product->name }}</h5>
-                <p class="card-text text-muted">{{ $product->sku_code }}</p>
+                <p class="card-text text-muted">{{ $product->product_code }}</p>
 
                 <p><strong>価格：</strong> {{ number_format($product->price) }}円</p>
                 <p><strong>カテゴリ：</strong> {{ $product->category?->name ?? '-' }}</p>

@@ -7,9 +7,9 @@
 </div>
 
 <div class="mb-3">
-    <label class="form-label">SKU</label>
-    <input name="sku_code" value="{{ old('sku_code', $product->sku_code ?? '') }}" class="form-control" required>
-    @error('sku_code')
+    <label class="form-label">商品コード</label>
+    <input name="product_code" value="{{ old('product_code', $product->product_code ?? '') }}" class="form-control" required>
+    @error('product_code')
         <div class="text-danger small">{{ $message }}</div>
     @enderror
 </div>

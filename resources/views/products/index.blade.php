@@ -11,7 +11,7 @@
         <form method="GET" class="row g-2 mb-3">
             <div class="col-sm-4">
                 <input type="text" name="keyword" value="{{ request('keyword') }}" class="form-control"
-                    placeholder="商品名 / SKU">
+                    placeholder="商品名 / 商品コード">
             </div>
             <div class="col-sm-3">
                 <select name="category_id" class="form-select">
@@ -39,7 +39,7 @@
             <thead>
                 <tr>
                     <th>商品名</th>
-                    <th>SKU</th>
+                    <th>商品コード</th>
                     <th class="text-end">価格</th>
                     <th>カテゴリ</th>
                     <th>状態</th>
@@ -54,7 +54,7 @@
                                 {{ $p->name }}
                             </a>
                         </td>
-                        <td>{{ $p->sku_code }}</td>
+                        <td>{{ $p->product_code }}</td>
                         <td class="text-end">{{ number_format($p->price) }}円</td>
                         <td>{{ $p->category?->name ?? '-' }}</td>
                         <td>

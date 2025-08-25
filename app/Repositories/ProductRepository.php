@@ -17,7 +17,7 @@ class ProductRepository implements ProductRepositoryInterface
         if (!empty($filters['keyword'])) {
             $query->where(function ($q) use ($filters) {
                 $q->where('name', 'like', '%' . $filters['keyword'] . '%')
-                    ->orWhere('sku_code', 'like', '%' . $filters['keyword'] . '%');
+                    ->orWhere('product_code', 'like', '%' . $filters['keyword'] . '%');
             });
         }
 
