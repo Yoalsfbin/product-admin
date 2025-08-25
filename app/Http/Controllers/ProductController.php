@@ -14,6 +14,7 @@ class ProductController extends Controller
     public function __construct(private ProductService $service)
     {
         $this->authorizeResource(Product::class, 'product');
+        $this->middleware('throttle:product-create')->only('store');
     }
 
     public function index(Request $request)
@@ -38,7 +39,15 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $data = $request->validated() + ['created_by' => $request->user()->id];
-        $this->service->create($data);
+
+        try {
+            $this->service->create($data);
+        } catch (\Throwable $e) {
+            return redirect()
+                ->route('products.index')
+                ->withInput()
+                ->with('error', $e->getMessage() ?: '登録できませんでした。');
+        }
 
         return redirect()->route('products.index')->with('success', '商品を登録しました');
     }

@@ -186,4 +186,6 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'demo_max_products' => env('DEMO_MAX_PRODUCTS', 100),
+
 ];

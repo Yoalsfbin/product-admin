@@ -17,7 +17,17 @@ class ProductService
 
     public function create(array $data): Product
     {
-        return DB::transaction(fn() => $this->products->create($data));
+        return DB::transaction(function () use ($data) {
+            $maxProducts = config('app.demo_max_products');
+
+            // グローバル件数
+            $total = Product::lockForUpdate()->count();
+            if ($total >= $maxProducts) {
+                abort(403, 'デモ版の登録上限に達しました。');
+            }
+
+            return Product::create($data);
+        });
     }
 
     public function update(Product $product, array $data): Product
