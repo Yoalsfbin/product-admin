@@ -13,8 +13,7 @@ class ProductController extends Controller
 {
     public function __construct(private ProductService $service)
     {
-        // Policy使う場合はここで登録してもOK
-        // $this->authorizeResource(Product::class, 'product');
+        $this->authorizeResource(Product::class, 'product');
     }
 
     public function index(Request $request)
