@@ -24,15 +24,5 @@ class UserSeeder extends Seeder
                 'last_login_at' => now(),
             ]
         );
-
-        User::updateOrCreate(
-            ['email' => 'staff@example.com'],
-            [
-                'name' => 'Staff',
-                'password' => Hash::make('password'),
-                'role_id' => 2,
-                'is_active' => true,
-            ]
-        );
     }
 }

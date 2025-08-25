@@ -22,8 +22,8 @@ class ProductSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             $product = Product::create([
-                'name' => $faker->realText(20),
-                'description' => $faker->realText(100),
+                'name' => "サンプル商品" . ($i + 1),
+                'description' => "これはサンプルの商品です。",
                 'product_code'     => strtoupper(Str::random(3)) . '-' . $faker->unique()->numberBetween(10000, 99999),
                 'price'        => $faker->numberBetween(500, 50000),
                 'category_id'  => Category::inRandomOrder()->value('id') ?? Category::factory()->create()->id,
