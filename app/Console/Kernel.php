@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // 03:00にデータリセット
+        $schedule->command('demo:reset')->dailyAt('03:00');
     }
 
     /**
