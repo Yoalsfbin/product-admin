@@ -39,7 +39,7 @@
         <div class="hero-text">
           <h1 class="title">{{ config('app.name', 'Laravel App') }}</h1>
           <p class="subtitle">
-            ポートフォリオ用のデモ環境です。閲覧中心で、登録や編集は一部無効化しています。
+            ポートフォリオ用のデモ環境です。
           </p>
           <div class="actions">
             @auth
@@ -56,6 +56,4 @@
           </p>
         </div>
 
-        {{-- ロゴ --}}
-        <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" width="100" height="100" aria-hidden="true">
-          <path d="M61.85 14.63v13.73a.9.9 0 0 1-.5.8L49.91 36.04v13.1a1.1 1.1 0 0 1-.5.87L25.45 63.79a1.2 1.2 0 0 1-1.2 0L.5 50a1.1 1.1 0 0 1-.5-.87V8.1c0-.17.05-.33.13-.48L12.48.35a1.5 1.5 0 0 1 1.45 0L25.45 7.24c.33.19.5.54.5.9v25.55l10-5.75V14.88c0-.36.18-.71.5-.9l1
+       
