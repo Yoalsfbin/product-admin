@@ -34,3 +34,5 @@ yarn-error.log
 /.vscode
 /.fleet
 .DS_Store
+
+product-admin-demo.env
