@@ -16,9 +16,8 @@ COPY . .
 
 COPY docker/nginx-laravel.conf /etc/nginx/conf.d/default.conf
 
-
+RUN rm -f bootstrap/cache/routes-*.php bootstrap/cache/config.php
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
-
 
 # ベースイメージの環境変数
 ENV WEBROOT=/var/www/html/public
