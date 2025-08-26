@@ -30,15 +30,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-Route::get('/__debug/routes', function () {
-    return response()->json(
-        collect(\Illuminate\Support\Facades\Route::getRoutes())
-            ->map(fn($r) => [
-                'uri' => $r->uri(),
-                'name' => $r->getName(),
-                'methods' => $r->methods(),
-            ])
-            ->values()
-    );
-});
