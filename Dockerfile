@@ -9,27 +9,31 @@ RUN apk add --no-cache --virtual .build-deps \
 
 WORKDIR /var/www/html
 
+
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --no-scripts
 
+
 COPY . .
+
+
+RUN rm -f bootstrap/cache/routes-*.php bootstrap/cache/config.php
+
+
+RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+
 
 COPY docker/nginx-laravel.conf /etc/nginx/conf.d/default.conf
 
-RUN rm -f bootstrap/cache/routes-*.php bootstrap/cache/config.php
-RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
 
-# ベースイメージの環境変数
-ENV WEBROOT=/var/www/html/public
-ENV PHP_ERRORS_STDERR=1
-ENV REAL_IP_HEADER=1
-ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV RUN_SCRIPTS=1 \
+    WEBROOT=/var/www/html/public \
+    PHP_ERRORS_STDERR=1 \
+    REAL_IP_HEADER=1 \
+    COMPOSER_ALLOW_SUPERUSER=1 \
+    APP_ENV=production \
+    APP_DEBUG=false \
+    LOG_CHANNEL=stderr
 
-ENV RUN_SCRIPTS=0
 
-# Laravel 基本設定
-ENV APP_ENV=production
-ENV APP_DEBUG=false
-ENV LOG_CHANNEL=stderr
-
-CMD ["/start.sh"]
+CMD ["/bin/sh","-lc","rm -f bootstrap/cache/routes-*.php bootstrap/cache/config.php && /start.sh"]
