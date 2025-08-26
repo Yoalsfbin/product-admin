@@ -17,7 +17,9 @@ RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --no-
 COPY . .
 
 
-RUN rm -f bootstrap/cache/routes-*.php bootstrap/cache/config.php
+RUN rm -f bootstrap/cache/routes-*.php bootstrap/cache/config.php \
+ && chown -R www-data:www-data storage bootstrap/cache \
+ && chmod -R ug+rwx storage bootstrap/cache
 
 
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
@@ -27,6 +29,7 @@ COPY docker/nginx-laravel.conf /etc/nginx/conf.d/default.conf
 
 
 ENV RUN_SCRIPTS=1 \
+    SKIP_COMPOSER=1 \
     WEBROOT=/var/www/html/public \
     PHP_ERRORS_STDERR=1 \
     REAL_IP_HEADER=1 \
