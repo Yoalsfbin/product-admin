@@ -1,11 +1,30 @@
+# Node / PHP dependencies
 /node_modules
+/vendor
+
+# Laravel specific
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Environment / test
 .env
 .phpunit.result.cache
+
+# Homestead / Vagrant
 Homestead.json
 Homestead.yaml
+
+# Debug / logs
 npm-debug.log
 yarn-error.log
+*.log
+
+# IDE / OS files
+.idea
+.vscode
+.DS_Store
