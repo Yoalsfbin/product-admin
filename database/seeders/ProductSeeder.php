@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
     {
         $faker = FakerFactory::create(config('app.faker_locale'));
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $product = Product::create([
                 'name' => "サンプル商品" . ($i + 1),
                 'description' => "これはサンプルの商品です。",
